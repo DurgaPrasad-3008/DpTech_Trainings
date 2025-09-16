@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/DpTech_Trainings/", // <-- Change this to match your GitHub repo name
+  base: '/DpTech_Trainings/', // <-- Change this to match your GitHub repo name
 
   define: {
     'import.meta.env.VITE_SUPABASE_URL': JSON.stringify('https://gcaeplteagvasyxxqczz.supabase.co'),
