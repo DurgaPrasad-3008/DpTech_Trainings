@@ -25,3 +25,18 @@ dist-ssr
 .env
 .env.production.local
 .env.local
+
+# Windows system files
+Thumbs.db
+
+# Vite cache
+.vite
+
+# npm cache
+.npm
+
+# Yarn cache
+.yarn
+
+# Test coverage (if you use testing)
+coverage/
