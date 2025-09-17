@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2">
               <img
-                src="/Dp-TechInstitute/images/dp-logo11.jpg"
+                src="/DpTech_Trainings/images/dp-logo11.jpg"
                 alt="DpTech Logo"
                 className="w-10 h-10 object-contain rounded-full"
               />

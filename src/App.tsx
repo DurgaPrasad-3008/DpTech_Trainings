@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 import Navbar from './components/Navbar';
@@ -11,30 +11,27 @@ import FoundingBatchSection from './components/FoundingBatchSection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-import { addStudent } from './services/studentService';
-
 function App() {
-  const tapTimeout = useRef<any>(null);
+  const tapTimeout = useRef(null);
   const tapCount = useRef(0);
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
 
-  const handleTap = () => {
-    tapCount.current += 1;
+ const handleTap = () => {
+  tapCount.current += 1;
 
-    if (tapCount.current === 2) {
-      // ✅ Double tap: scroll to top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      clearTimeout(tapTimeout.current);
+  if (tapCount.current === 2) {
+    // ✅ Double tap: scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    clearTimeout(tapTimeout.current);
+    tapCount.current = 0;
+  } else {
+    // ✅ Single tap: open dialer
+    tapTimeout.current = setTimeout(() => {
+      window.location.href = 'tel:7731878344';
       tapCount.current = 0;
-    } else {
-      // ✅ Single tap: open dialer
-      tapTimeout.current = setTimeout(() => {
-        window.location.href = 'tel:7731878344';
-        tapCount.current = 0;
-      }, 300); // 300ms wait for second tap
-    }
-  };
+    }, 300); // 300ms wait for second tap
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-white relative">
@@ -72,15 +69,8 @@ function App() {
           alt="DP Logo"
           className="w-14 h-14 rounded-full object-cover"
         />
+
       </div>
-
-
-      {/* ✅ Message */}
-      {message && (
-        <div className="fixed bottom-56 left-6 bg-gray-100 p-2 rounded shadow text-sm">
-          {message}
-        </div>
-      )}
     </div>
   );
 }
